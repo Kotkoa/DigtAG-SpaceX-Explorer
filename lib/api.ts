@@ -11,10 +11,10 @@ async function apiFetch<T>(endpoint: string, options?: RequestInit): Promise<T> 
   });
 
   if (!response.ok) {
-    throw new ApiError(
-      response.status,
-      `SpaceX API error: ${response.status} ${response.statusText}`,
-    );
+    throw new ApiError({
+      statusCode: response.status,
+      message: `SpaceX API error: ${response.status} ${response.statusText}`,
+    });
   }
 
   return response.json() as Promise<T>;

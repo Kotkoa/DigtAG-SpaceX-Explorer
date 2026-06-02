@@ -77,24 +77,24 @@
 
 > **Skill:** `frontend-developer`
 
-- [ ] Скелетоны карточек
-- [ ] Empty-state
-- [ ] Error-state с кнопкой Retry
-- [ ] Retry/backoff на 429/5xx в QueryClient (exponential backoff)
+- [x] Скелетоны карточек
+- [x] Empty-state
+- [x] Error-state с кнопкой Retry
+- [x] Retry/backoff на 429/5xx в QueryClient (exponential backoff)
 
 **Acceptance Criteria:**
 
-- [ ] Во время загрузки показываются скелетоны (не пустой экран и не layout shift)
-- [ ] При нулевом результате показывается осмысленный empty-state
-- [ ] При ошибке сети/сервера показывается error-state с кнопкой Retry, кнопка реально повторяет запрос
-- [ ] Retry срабатывает автоматически на 429/5xx с exponential backoff; на 4xx (кроме 429) — НЕ ретраит
-- [ ] Состояния не ломают вёрстку на mobile/tablet/desktop
+- [x] Во время загрузки показываются скелетоны (не пустой экран и не layout shift)
+- [x] При нулевом результате показывается осмысленный empty-state
+- [x] При ошибке сети/сервера показывается error-state с кнопкой Retry, кнопка реально повторяет запрос
+- [x] Retry срабатывает автоматически на 429/5xx с exponential backoff; на 4xx (кроме 429) — НЕ ретраит
+- [x] Состояния не ломают вёрстку на mobile/tablet/desktop
 
 **Code Review:**
 
-- [ ] Запустить агента `code-reviewer` (Task) по диффу шага
-- [ ] Прогнать skill `/code-review`
-- [ ] Исправить замечания
+- [x] Запустить агента `code-reviewer` (Task) по диффу шага
+- [x] Прогнать skill `/code-review`
+- [x] Исправить замечания
 
 ## Шаг 2 — Фильтры, сортировка, поиск (серверные, через query)
 

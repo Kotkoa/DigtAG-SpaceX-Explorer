@@ -151,29 +151,29 @@
 
 > **Skill:** `nextjs-developer`
 
-- [ ] `generateStaticParams` → `[]` (динамика на клиенте, совместимо с export)
-- [ ] Client-side фетч launch по ID
-- [ ] Связанные `rocket` и `launchpad` (фетч по их ID)
-- [ ] Инфо: имя, дата, success, details, links
-- [ ] Галерея Flickr-изображений (если есть)
-- [ ] Loading/error/empty состояния для детали и связанных сущностей
+- [x] `generateStaticParams` → `[]` (динамика на клиенте, совместимо с export)
+- [x] Client-side фетч launch по ID
+- [x] Связанные `rocket` и `launchpad` (фетч по их ID)
+- [x] Инфо: имя, дата, success, details, links
+- [x] Галерея Flickr-изображений (если есть)
+- [x] Loading/error/empty состояния для детали и связанных сущностей
 
 **Acceptance Criteria:**
 
-- [ ] Переход на `/launches/[id]` с карточки списка открывает корректную деталь
-- [ ] Прямой заход по URL (refresh) на `/launches/[id]` работает (export + client-side fetch)
-- [ ] Отображаются name, date, success, details, links (внешние ссылки открываются корректно)
-- [ ] Подгружаются и показываются связанные rocket и launchpad по их ID
-- [ ] Галерея Flickr рендерится при наличии изображений; при отсутствии — корректный fallback
-- [ ] Loading/error состояния присутствуют, error имеет retry
-- [ ] Несуществующий ID → корректный not-found/error-state, без падения
-- [ ] Деталь читаема на mobile/tablet/desktop
+- [x] Переход на `/launches/[id]` с карточки списка открывает корректную деталь
+- [x] Прямой заход по URL (refresh) на `/launches/[id]` работает (export + client-side fetch)
+- [x] Отображаются name, date, success, details, links (внешние ссылки открываются корректно)
+- [x] Подгружаются и показываются связанные rocket и launchpad по их ID
+- [x] Галерея Flickr рендерится при наличии изображений; при отсутствии — корректный fallback
+- [x] Loading/error состояния присутствуют, error имеет retry
+- [x] Несуществующий ID → корректный not-found/error-state, без падения
+- [x] Деталь читаема на mobile/tablet/desktop
 
 **Code Review:**
 
-- [ ] Запустить агента `code-reviewer` (Task) по диффу шага
-- [ ] Прогнать skill `/code-review`
-- [ ] Исправить замечания
+- [x] Запустить агента `code-reviewer` (Task) по диффу шага
+- [x] Прогнать skill `/code-review`
+- [x] Исправить замечания
 
 ## Шаг 5 — Favorites
 

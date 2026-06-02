@@ -25,11 +25,14 @@ export const LaunchList: FC = () => {
     resizeObserverRef.current?.disconnect();
     resizeObserverRef.current = null;
     if (!container) return;
-    const observer = new ResizeObserver(() => {
-      setListHeight(container.clientHeight);
-    });
-    observer.observe(container);
+    const updateHeight = () => {
+      const top = container.getBoundingClientRect().top;
+      setListHeight(window.innerHeight - top);
+    };
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(document.documentElement);
     resizeObserverRef.current = observer;
+    updateHeight();
   }, []);
 
   const {
@@ -62,7 +65,7 @@ export const LaunchList: FC = () => {
   }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
 
   return (
-    <section className="flex flex-col flex-1 min-h-0" aria-label="SpaceX launches">
+    <section className="flex flex-col" aria-label="SpaceX launches">
       <div className="flex items-center justify-between mb-4 shrink-0">
         <h1 className="text-2xl font-bold text-gray-900">
           Launches
@@ -85,7 +88,7 @@ export const LaunchList: FC = () => {
       ) : allLaunches.length === 0 ? (
         <EmptyState />
       ) : (
-        <div ref={listContainerRef} className="flex-1 min-h-0">
+        <div ref={listContainerRef}>
           <VirtualLaunchList
             launches={allLaunches}
             isFetchingNextPage={isFetchingNextPage}

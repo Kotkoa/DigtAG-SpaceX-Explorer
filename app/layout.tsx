@@ -18,17 +18,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: `
-          (function() {
-            var redirect = sessionStorage.getItem('spa-redirect');
-            if (redirect) {
-              sessionStorage.removeItem('spa-redirect');
-              window.history.replaceState(null, '', '/DigtAG-SpaceX-Explorer' + redirect);
-            }
-          })();
-        ` }} />
-      </head>
       <body className="min-h-dvh flex flex-col bg-white text-gray-900">
         <a
           href="#main-content"

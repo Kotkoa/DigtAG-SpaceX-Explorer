@@ -275,17 +275,17 @@
 
 > **Skill:** `github-actions-creator`
 
-- [ ] `.nojekyll`
-- [ ] GitHub Action: build → export → deploy на `gh-pages`
-- [ ] README:
-  - [ ] How to run
-  - [ ] Architecture decisions (App vs Pages Router — обоснование)
-  - [ ] Data layer (почему React Query)
-  - [ ] SpaceX API usage (queries, pagination strategy)
-  - [ ] Performance considerations (virtualization, memoization, background refresh)
-  - [ ] Accessibility considerations
-  - [ ] Tradeoffs / what next
-  - [ ] Known limitations / TODOs (сравнение запусков, offline/SW, SSR — осознанно отложены)
+- [x] `.nojekyll`
+- [x] GitHub Action: build → export → deploy на `gh-pages`
+- [x] README:
+  - [x] How to run
+  - [x] Architecture decisions (App vs Pages Router — обоснование)
+  - [x] Data layer (почему React Query)
+  - [x] SpaceX API usage (queries, pagination strategy)
+  - [x] Performance considerations (virtualization, memoization, background refresh)
+  - [x] Accessibility considerations
+  - [x] Tradeoffs / what next
+  - [x] Known limitations / TODOs (сравнение запусков, offline/SW, SSR — осознанно отложены)
 
 **Acceptance Criteria:**
 

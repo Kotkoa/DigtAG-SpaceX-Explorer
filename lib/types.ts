@@ -100,10 +100,15 @@ export interface Launchpad {
   details: string;
 }
 
+export type LaunchStatus = "all" | "upcoming" | "past";
+export type LaunchOutcome = "all" | "success" | "failure";
+export type SortField = "date_utc" | "name";
+export type SortDirection = "asc" | "desc";
+
 export interface QueryOptions {
   limit?: number;
   offset?: number;
-  sort?: Record<string, 1 | -1>;
+  sort?: Partial<Record<SortField, 1 | -1>>;
 }
 
 export interface QueryResponse<T> {
@@ -118,4 +123,14 @@ export interface QueryResponse<T> {
   hasNextPage: boolean;
   prevPage: number | null;
   nextPage: number | null;
+}
+
+export interface LaunchFilters {
+  status: LaunchStatus;
+  outcome: LaunchOutcome;
+  dateFrom: string;
+  dateTo: string;
+  search: string;
+  sortField: SortField;
+  sortDirection: SortDirection;
 }

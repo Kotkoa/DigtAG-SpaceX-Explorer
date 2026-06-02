@@ -1,5 +1,6 @@
-import type { Launch, Rocket, Launchpad, QueryResponse, QueryOptions } from "./types";
+import type { Launch, Rocket, Launchpad, QueryResponse, LaunchFilters } from "./types";
 import { ApiError } from "./api-error";
+import { buildLaunchQueryFromFilters, DEFAULT_FILTERS } from "./launch-filters";
 
 const SPACEX_API_BASE = "https://api.spacexdata.com/v4";
 
@@ -20,38 +21,16 @@ async function apiFetch<T>(endpoint: string, options?: RequestInit): Promise<T> 
   return response.json() as Promise<T>;
 }
 
-interface LaunchQueryBody {
-  query: Record<string, unknown>;
-  options: QueryOptions & { select?: Record<string, number> };
-}
-
-export function buildLaunchQuery({
-  page,
-  limit,
-  sort,
-}: {
-  page: number;
-  limit: number;
-  sort?: QueryOptions["sort"];
-}): LaunchQueryBody {
-  return {
-    query: {},
-    options: {
-      limit,
-      offset: (page - 1) * limit,
-      sort: sort ?? { date_utc: -1 },
-    },
-  };
-}
-
 export async function queryLaunches({
   page,
   limit,
+  filters = DEFAULT_FILTERS,
 }: {
   page: number;
   limit: number;
+  filters?: LaunchFilters;
 }): Promise<QueryResponse<Launch>> {
-  const body = buildLaunchQuery({ page, limit });
+  const body = buildLaunchQueryFromFilters({ filters, page, limit });
   return apiFetch<QueryResponse<Launch>>("/launches/query", {
     method: "POST",
     body: JSON.stringify(body),

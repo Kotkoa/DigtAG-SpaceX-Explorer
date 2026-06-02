@@ -100,28 +100,28 @@
 
 > **Skill:** `nextjs-developer` (+ `api-design-principles` для дизайна query-слоя)
 
-- [ ] Фильтры: upcoming/past, success/failure, date range
-- [ ] Сортировка по date/name
-- [ ] Поиск по mission name (`$regex` в query)
-- [ ] Состояние фильтров → в URL search params (shareable)
-- [ ] Всё уходит в `POST /launches/query` (НЕ клиентская фильтрация)
-- [ ] Debounce для поля поиска
+- [x] Фильтры: upcoming/past, success/failure, date range
+- [x] Сортировка по date/name
+- [x] Поиск по mission name (`$regex` в query)
+- [x] Состояние фильтров → в URL search params (shareable)
+- [x] Всё уходит в `POST /launches/query` (НЕ клиентская фильтрация)
+- [x] Debounce для поля поиска
 
 **Acceptance Criteria:**
 
-- [ ] Каждый фильтр (upcoming/past, success/failure, date range) меняет тело `query` и результат корректен
-- [ ] Сортировка по date и по name работает в обе стороны (asc/desc)
-- [ ] Поиск по mission name фильтрует на сервере (`$regex`/`$options`), с debounce
-- [ ] Состояние фильтров/сортировки/поиска отражено в URL; перезагрузка страницы и шаринг ссылки восстанавливают состояние
-- [ ] Фильтрация НЕ выполняется на клиенте поверх полной выборки (проверить вкладку Network)
-- [ ] Сброс фильтров возвращает исходный список
-- [ ] Панель фильтров usable на mobile/tablet/desktop
+- [x] Каждый фильтр (upcoming/past, success/failure, date range) меняет тело `query` и результат корректен
+- [x] Сортировка по date и по name работает в обе стороны (asc/desc)
+- [x] Поиск по mission name фильтрует на сервере (`$regex`/`$options`), с debounce
+- [x] Состояние фильтров/сортировки/поиска отражено в URL; перезагрузка страницы и шаринг ссылки восстанавливают состояние
+- [x] Фильтрация НЕ выполняется на клиенте поверх полной выборки (проверить вкладку Network)
+- [x] Сброс фильтров возвращает исходный список
+- [x] Панель фильтров usable на mobile/tablet/desktop
 
 **Code Review:**
 
-- [ ] Запустить агента `code-reviewer` (Task) по диффу шага
-- [ ] Прогнать skill `/code-review`
-- [ ] Исправить замечания
+- [x] Запустить агента `code-reviewer` (Task) по диффу шага
+- [x] Прогнать skill `/code-review`
+- [x] Исправить замечания
 
 ## Шаг 3 — Infinite scroll + виртуализация + мемоизация
 

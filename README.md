@@ -8,6 +8,10 @@ A production-ready SpaceX launch browser built with Next.js 16 and the public [S
 |:---:|:---:|
 | ![Launches list with filters and search](public/screenshot-home.png) | ![Launch statistics — launches per year and success rate](public/screenshot-stats.png) |
 
+| Favorites | Photo gallery |
+|:---:|:---:|
+| ![Saved launches with bookmarks persisted in LocalStorage](public/screenshots/favorites.png) | ![Flickr photo gallery on launch detail page](public/screenshots/gallery.png) |
+
 ---
 
 ## How to Run
@@ -33,6 +37,28 @@ Next.js 16 App Router was chosen over Pages Router for several reasons:
 - **Future-proof**: Pages Router is in maintenance mode; App Router is the active development target.
 
 The project is deployed on Vercel, which provides full SSR support. Server Components are used for layout and static structure; all data fetching is client-side via React Query, keeping the bundle predictable and the API surface simple.
+
+---
+
+## Features
+
+### Favorites
+
+Any launch can be bookmarked by clicking the ★ star icon on a launch card or on the detail page. Saved launches appear on the dedicated **[/favorites](https://digt-ag-space-x-explorer.vercel.app/favorites)** page, accessible from the header navigation.
+
+- State is persisted in `localStorage` under the key `spacex-favorites` as a JSON array of launch IDs — bookmarks survive page refreshes and browser restarts.
+- A `useFavorites` hook manages all read/write logic; a `FavoritesContext` provider makes the state available globally without prop drilling.
+- The favorites page fetches the full launch objects in parallel via `useQueries` (React Query), so each card renders with complete data.
+- Resilient to corrupted storage: malformed JSON is caught and the key is reset to an empty array.
+
+### Image Gallery (Flickr)
+
+Launches that have Flickr photos display a **Photos** section at the bottom of the detail page. Images are fetched from the `links.flickr.original` (falling back to `links.flickr.small`) field of the SpaceX API response.
+
+- Grid layout: 2 columns on mobile, 3 on desktop.
+- Clicking any thumbnail opens a full-screen lightbox modal with **Previous / Next** navigation.
+- Keyboard accessible: `Escape` closes the modal, focus is trapped inside, all controls have ARIA labels.
+- Falls back gracefully with a "No photos available" message when a launch has no Flickr images.
 
 ---
 

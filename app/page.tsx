@@ -4,8 +4,10 @@ import { LaunchListSkeleton } from "@/components/LaunchListSkeleton";
 
 export default function HomePage() {
   return (
-    <Suspense fallback={<LaunchListSkeleton count={8} />}>
-      <LaunchList />
-    </Suspense>
+    <div className="flex flex-col flex-1 min-h-0">
+      <Suspense fallback={<LaunchListSkeleton count={8} />}>
+        <LaunchList />
+      </Suspense>
+    </div>
   );
 }

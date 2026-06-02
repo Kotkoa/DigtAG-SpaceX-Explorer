@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-white text-gray-900">
+      <body className="h-dvh flex flex-col bg-white text-gray-900 overflow-hidden">
         <Providers>
           <header className="border-b border-gray-200 bg-white sticky top-0 z-10">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center gap-3">
@@ -31,7 +31,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
               </Link>
             </div>
           </header>
-          <main className="flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 py-8">
+          <main className="flex-1 flex flex-col min-h-0 max-w-6xl mx-auto w-full px-4 sm:px-6 py-8">
             {children}
           </main>
           <footer className="border-t border-gray-200 py-6 text-center text-sm text-gray-500">

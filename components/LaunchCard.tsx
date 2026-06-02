@@ -1,6 +1,6 @@
 "use client";
 
-import { type FC } from "react";
+import { memo } from "react";
 import Image from "next/image";
 import type { Launch } from "@/lib/types";
 import { SuccessBadge } from "./SuccessBadge";
@@ -18,7 +18,7 @@ function formatDate(dateUtc: string): string {
   });
 }
 
-export const LaunchCard: FC<LaunchCardProps> = ({ launch }) => {
+function LaunchCardComponent({ launch }: LaunchCardProps) {
   return (
     <article className="flex items-start gap-4 p-4 rounded-lg border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all bg-white">
       <div className="shrink-0 w-14 h-14 sm:w-16 sm:h-16 relative">
@@ -50,4 +50,6 @@ export const LaunchCard: FC<LaunchCardProps> = ({ launch }) => {
       </div>
     </article>
   );
-};
+}
+
+export const LaunchCard = memo(LaunchCardComponent);

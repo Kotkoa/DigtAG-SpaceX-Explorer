@@ -3,6 +3,7 @@
 import { type FC, type ReactNode, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ApiError } from "@/lib/api-error";
+import { FavoritesProvider } from "@/components/FavoritesContext";
 
 function makeQueryClient() {
   return new QueryClient({
@@ -30,5 +31,9 @@ interface ProvidersProps {
 
 export const Providers: FC<ProvidersProps> = ({ children }) => {
   const [queryClient] = useState(makeQueryClient);
-  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <FavoritesProvider>{children}</FavoritesProvider>
+    </QueryClientProvider>
+  );
 };

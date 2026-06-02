@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { getLaunchById, getRocketById, getLaunchpadById } from "@/lib/api";
 import { SuccessBadge } from "./SuccessBadge";
+import { FavoriteButton } from "./FavoriteButton";
 import { RocketCard } from "./RocketCard";
 import { LaunchpadCard } from "./LaunchpadCard";
 import { FlickrGallery } from "./FlickrGallery";
@@ -116,8 +117,9 @@ export const LaunchDetailView: FC<LaunchDetailViewProps> = ({ launchId }) => {
             Flight #{launch.flight_number} ·{" "}
             {formatDate({ dateUtc: launch.date_utc, precision: launch.date_precision })}
           </p>
-          <div className="pt-1">
+          <div className="pt-1 flex items-center gap-2">
             <SuccessBadge success={launch.success} upcoming={launch.upcoming} />
+            <FavoriteButton launchId={launch.id} launchName={launch.name} />
           </div>
         </div>
       </header>

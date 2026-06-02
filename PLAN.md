@@ -253,23 +253,23 @@
 
 > **Skill:** `tdd` (+ `react-vite-best-practices` для конфигурации Vitest)
 
-- [ ] Настройка Vitest + React Testing Library
-- [ ] Юнит-тест: построение query-параметров (фильтры/сортировка/поиск → тело query)
-- [ ] Юнит-тест: `useFavorites` (add/remove/persist/повреждённый storage)
-- [ ] Юнит-тест: логика фильтров
+- [x] Настройка Vitest + React Testing Library
+- [x] Юнит-тест: построение query-параметров (фильтры/сортировка/поиск → тело query)
+- [x] Юнит-тест: `useFavorites` (add/remove/persist/повреждённый storage)
+- [x] Юнит-тест: логика фильтров
 
 **Acceptance Criteria:**
 
-- [ ] `npm test` проходит полностью (зелёный), без флака
-- [ ] Покрыты: query-билдер, `useFavorites`, логика фильтров
-- [ ] Тесты проверяют поведение (а не реализацию), читаемы
+- [x] `npm test` проходит полностью (зелёный), без флака
+- [x] Покрыты: query-билдер, `useFavorites`, логика фильтров
+- [x] Тесты проверяют поведение (а не реализацию), читаемы
 - [ ] Скрипт `test` добавлен в `package.json`; тесты можно запускать в CI
 
 **Code Review:**
 
-- [ ] Запустить агента `code-reviewer` (Task) по диффу шага
-- [ ] Прогнать skill `/code-review`
-- [ ] Исправить замечания
+- [x] Запустить агента `code-reviewer` (Task) по диффу шага
+- [x] Прогнать skill `/code-review`
+- [x] Исправить замечания
 
 ## Шаг 9 — Деплой GitHub Pages + README
 

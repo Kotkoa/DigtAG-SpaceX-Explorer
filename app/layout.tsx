@@ -37,7 +37,13 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                   SpaceX Explorer
                 </Link>
               </div>
-              <nav aria-label="Main navigation">
+              <nav aria-label="Main navigation" className="flex items-center gap-1">
+                <Link
+                  href="/stats"
+                  className="text-sm font-medium text-gray-600 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-2 py-1 transition-colors"
+                >
+                  <span aria-hidden="true">📊</span> Stats
+                </Link>
                 <Link
                   href="/favorites"
                   className="text-sm font-medium text-gray-600 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-2 py-1 transition-colors"

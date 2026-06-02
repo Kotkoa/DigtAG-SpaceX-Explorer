@@ -48,3 +48,18 @@ export async function getRocketById(rocketId: string): Promise<Rocket> {
 export async function getLaunchpadById(launchpadId: string): Promise<Launchpad> {
   return apiFetch<Launchpad>(`/launchpads/${launchpadId}`);
 }
+
+export async function getAllLaunches(): Promise<Launch[]> {
+  const response = await apiFetch<QueryResponse<Launch>>("/launches/query", {
+    method: "POST",
+    body: JSON.stringify({
+      query: { upcoming: false },
+      options: {
+        select: { date_utc: 1, success: 1 },
+        limit: 10000,
+        sort: { date_utc: 1 },
+      },
+    }),
+  });
+  return response.docs;
+}

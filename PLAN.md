@@ -230,24 +230,24 @@
 
 > **Skill:** `frontend-developer`
 
-- [ ] Recharts: запуски по годам
-- [ ] Recharts: success rate
-- [ ] Страница `/stats`
-- [ ] Loading/empty/error состояния для агрегации
+- [x] Recharts: запуски по годам
+- [x] Recharts: success rate
+- [x] Страница `/stats`
+- [x] Loading/empty/error состояния для агрегации
 
 **Acceptance Criteria:**
 
-- [ ] На `/stats` отображаются два графика: запуски по годам и success rate
-- [ ] Графики построены на реальных данных API, цифры сходятся с выборкой
-- [ ] Есть loading-состояние и осмысленный empty/error-state
-- [ ] Графики responsive и читаемы на mobile/tablet/desktop
-- [ ] Графики доступны (заголовки/подписи осей, не только цвет как носитель смысла)
+- [x] На `/stats` отображаются два графика: запуски по годам и success rate
+- [x] Графики построены на реальных данных API, цифры сходятся с выборкой
+- [x] Есть loading-состояние и осмысленный empty/error-state
+- [x] Графики responsive и читаемы на mobile/tablet/desktop
+- [x] Графики доступны (заголовки/подписи осей, не только цвет как носитель смысла)
 
 **Code Review:**
 
-- [ ] Запустить агента `code-reviewer` (Task) по диффу шага
-- [ ] Прогнать skill `/code-review`
-- [ ] Исправить замечания
+- [x] Запустить агента `code-reviewer` (Task) по диффу шага
+- [x] Прогнать skill `/code-review`
+- [x] Исправить замечания
 
 ## Шаг 8 — Тесты (Vitest + RTL)
 

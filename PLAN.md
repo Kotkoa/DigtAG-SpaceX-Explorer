@@ -281,9 +281,8 @@
 - [x] Удалить `public/.nojekyll`
 
 **Vercel деплой:**
-- [ ] Создать `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID` в GitHub Secrets
-- [ ] `.github/workflows/deploy.yml`: тесты → `vercel build` → `vercel deploy --prebuilt` на `main`
-- [ ] Preview deploys на PR через тот же workflow (без `--prod`)
+- [x] Деплой через Vercel Git Integration (прямой импорт репозитория — CI через GitHub Actions не нужен)
+- [x] Auto-deploy на каждый push в `main`
 
 **README:**
 - [x] How to run
@@ -298,40 +297,40 @@
 
 **Acceptance Criteria:**
 
-- [ ] GitHub Action: тесты → `vercel deploy` проходит без ошибок на push в `main`
-- [ ] Живая ссылка Vercel открывается, все роуты работают при прямом заходе (`/launches/[id]`, `/favorites`, `/stats`)
-- [ ] Ассеты грузятся корректно (нет битых путей — `basePath` убран)
-- [ ] Preview URL генерируется на каждый PR
-- [ ] README содержит все разделы и актуальную Live-ссылку
+- [x] Деплой проходит без ошибок при push в `main` (Vercel Git Integration)
+- [x] Живая ссылка Vercel открывается, все роуты работают при прямом заходе (`/launches/[id]`, `/favorites`, `/stats`)
+- [x] Ассеты грузятся корректно (патчи через `/_next/image`, нет битых путей)
+- [~] Preview URL — через Vercel Git Integration автоматически для PR (GitHub Actions CI не используется)
+- [x] README содержит все разделы и актуальную Live-ссылку
 
 **Code Review:**
 
-- [ ] Запустить агента `code-reviewer` (Task) по диффу шага
-- [ ] Прогнать skill `/code-review`
-- [ ] Исправить замечания
+- [x] Запустить агента `code-reviewer` (Task) по диффу шага
+- [x] Прогнать skill `/code-review`
+- [x] Исправить замечания
 
 ---
 
 ## Соответствие ТЗ (чек обязательных требований)
 
-- [ ] Next.js + TypeScript, App Router обоснован → Шаг 0, 9
-- [ ] Strong types, no `any` → Шаг 0 (сквозное)
-- [ ] Loading/empty/error states → Шаг 1
-- [ ] Responsive → сквозное (mobile-first)
-- [ ] Accessible → Шаг 6 (закладка с Шага 0)
-- [ ] Launches List: server pagination → Шаг 0
-- [ ] Фильтры upcoming/past, success/fail, date range → Шаг 2
-- [ ] Sort by date/name → Шаг 2
-- [ ] Search by mission name → Шаг 2
-- [ ] Infinite scroll / Load more → Шаг 0 + 3
-- [ ] Skeletons + error с retry → Шаг 1
-- [ ] Launch Detail `/launches/[id]` + rocket + launchpad → Шаг 4
-- [ ] Flickr gallery → Шаг 4
-- [ ] Favorites + LocalStorage + favorites page → Шаг 5
-- [ ] React Query: cache/dedupe/background refresh → Шаг 0
-- [ ] Retry/backoff 429/5xx → Шаг 1
-- [ ] Virtualization (react-window) → Шаг 3
-- [ ] Memoization → Шаг 3
-- [ ] A11y → Шаг 6
-- [ ] Styling (Tailwind) → Шаг 0
-- [ ] README со всеми разделами → Шаг 9
+- [x] Next.js + TypeScript, App Router обоснован → Шаг 0, 9
+- [x] Strong types, no `any` → Шаг 0 (сквозное)
+- [x] Loading/empty/error states → Шаг 1
+- [x] Responsive → сквозное (mobile-first)
+- [x] Accessible → Шаг 6 (закладка с Шага 0)
+- [x] Launches List: server pagination → Шаг 0
+- [x] Фильтры upcoming/past, success/fail, date range → Шаг 2
+- [x] Sort by date/name → Шаг 2
+- [x] Search by mission name → Шаг 2
+- [x] Infinite scroll / Load more → Шаг 0 + 3
+- [x] Skeletons + error с retry → Шаг 1
+- [x] Launch Detail `/launches/[id]` + rocket + launchpad → Шаг 4
+- [x] Flickr gallery → Шаг 4
+- [x] Favorites + LocalStorage + favorites page → Шаг 5
+- [x] React Query: cache/dedupe/background refresh → Шаг 0
+- [x] Retry/backoff 429/5xx → Шаг 1
+- [x] Virtualization (react-window) → Шаг 3
+- [x] Memoization → Шаг 3
+- [x] A11y → Шаг 6
+- [x] Styling (Tailwind) → Шаг 0
+- [x] README со всеми разделами → Шаг 9

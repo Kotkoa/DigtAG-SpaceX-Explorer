@@ -39,6 +39,9 @@ jobs:
         env:
           NODE_ENV: production
 
+      - name: Copy index.html to 404.html for SPA routing
+        run: cp out/index.html out/404.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

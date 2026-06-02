@@ -14,8 +14,8 @@ A production-ready SpaceX launch browser built with Next.js 16 and the public [S
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000/DigtAG-SpaceX-Explorer
-npm run build      # static export → out/
+npm run dev        # http://localhost:3000
+npm run build      # production build
 npm test           # Vitest unit tests
 npm run test:watch # watch mode
 ```
@@ -32,7 +32,7 @@ Next.js 16 App Router was chosen over Pages Router for several reasons:
 - **Colocation**: route segments live next to their components (`app/launches/[id]/page.tsx`), making the file tree a direct map of the URL structure.
 - **Future-proof**: Pages Router is in maintenance mode; App Router is the active development target.
 
-Since the project targets GitHub Pages (`output: 'export'`), Server Components are used for layout and static structure only — all data fetching is client-side via React Query. This is an explicit tradeoff: we get the App Router's organizational benefits without needing a Node server.
+The project is deployed on Vercel, which provides full SSR support. Server Components are used for layout and static structure; all data fetching is client-side via React Query, keeping the bundle predictable and the API surface simple.
 
 ---
 
@@ -108,20 +108,19 @@ Infinite scroll is driven by `onItemsRendered` — when the last rendered index 
 
 | Decision | Reason |
 |---|---|
-| Client-side only, no SSR | GitHub Pages requires static export; `output: 'export'` means no Node runtime. SSR would require Vercel/Netlify. |
+| Client-side data fetching | All API calls happen in the browser via React Query. SSR/ISR is available on Vercel and would improve first-paint — left as a next step. |
 | No Service Worker / offline support | Adds significant complexity for a read-only demo. React Query's cache covers most "briefly offline" cases already. |
 | `react-window` fixed row height | Variable-height virtualization (`react-virtualized`) is considerably more complex. Fixed height works well for uniform launch cards. |
 | No comparison view | Comparing two launches side-by-side is a natural next feature but was out of scope. |
 
 ### Known Limitations
 
-- **Direct URL navigation on GitHub Pages**: because GitHub Pages serves a 404 for unknown paths, `/launches/[id]` loaded directly shows a 404 until the 404.html redirect trick is in place. The current `next.config.ts` uses `trailingSlash: false`; a custom `404.html` that redirects to `index.html` with the path encoded in the query string would fix this.
 - **No pagination state in URL for infinite scroll**: the current page count is held in React Query's in-memory `pageParam`. A hard refresh resets to page 1. Persisting scroll position across sessions would require encoding `pages` in the URL or using `sessionStorage`.
 - **API rate limits**: the SpaceX API is public and unauthenticated. Heavy use may hit undocumented rate limits; the retry/backoff configuration handles transient 429s but sustained overuse has no mitigation.
 
 ### What's Next
 
-- **SSR/ISR on Vercel**: move to `output: 'standalone'`, enable ISR for the launches list — first paint would be server-rendered HTML instead of a skeleton.
+- **SSR/ISR on Vercel**: enable ISR for the launches list — first paint would be server-rendered HTML instead of a skeleton. The infra is already in place on Vercel; it's a matter of moving fetches to Server Components.
 - **Comparison view**: select two launches and diff their specs.
 - **Service Worker**: offline-first with Workbox, pre-cache the first page of launches.
 - **E2E tests**: Playwright tests covering the full filter → infinite scroll → detail flow.

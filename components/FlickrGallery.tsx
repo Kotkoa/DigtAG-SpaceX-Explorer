@@ -52,7 +52,7 @@ export const FlickrGallery: FC<FlickrGalleryProps> = ({ images, launchName }) =>
 
   if (images.length === 0) {
     return (
-      <p className="text-sm text-gray-400 italic">No photos available for this launch.</p>
+      <p className="text-sm text-gray-500 italic">No photos available for this launch.</p>
     );
   }
 

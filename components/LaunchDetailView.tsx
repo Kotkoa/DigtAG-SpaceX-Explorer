@@ -167,6 +167,7 @@ export const LaunchDetailView: FC<LaunchDetailViewProps> = ({ launchId }) => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`${label} (opens in new tab)`}
                 className="inline-flex items-center px-3 py-1.5 rounded-lg border border-gray-200 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 hover:border-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1 transition-colors"
               >
                 {label} ↗

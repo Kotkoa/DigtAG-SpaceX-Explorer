@@ -98,7 +98,7 @@ export const LaunchList: FC = () => {
             cacheKey={filterCacheKey}
           />
           {!hasNextPage && (
-            <p className="mt-4 text-center text-sm text-gray-400" aria-live="polite">
+            <p className="mt-4 text-center text-sm text-gray-500" aria-live="polite">
               All {data.pages[0]?.totalDocs ?? allLaunches.length} launches loaded
             </p>
           )}

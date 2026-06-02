@@ -19,6 +19,12 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
       <body className="min-h-dvh flex flex-col bg-white text-gray-900">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-gray-900 focus:rounded-lg focus:shadow-lg focus:ring-2 focus:ring-blue-500"
+        >
+          Skip to main content
+        </a>
         <Providers>
           <header className="border-b border-gray-200 bg-white sticky top-0 z-10">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-3">
@@ -36,12 +42,12 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                   href="/favorites"
                   className="text-sm font-medium text-gray-600 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-2 py-1 transition-colors"
                 >
-                  ★ Favorites
+                  <span aria-hidden="true">★</span> Favorites
                 </Link>
               </nav>
             </div>
           </header>
-          <main className="flex-1 flex flex-col min-h-0 max-w-6xl mx-auto w-full px-4 sm:px-6 py-8">
+          <main id="main-content" className="flex-1 flex flex-col min-h-0 max-w-6xl mx-auto w-full px-4 sm:px-6 py-8">
             {children}
           </main>
           <footer className="border-t border-gray-200 py-6 text-center text-sm text-gray-500">

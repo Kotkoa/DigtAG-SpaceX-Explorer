@@ -1,8 +1,16 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
+  basePath: '/DigtAG-SpaceX-Explorer',
+  assetPrefix: '/DigtAG-SpaceX-Explorer',
+  images: {
+    unoptimized: true,
+  },
   reactCompiler: true,
-};
+  logging: {
+    browserToTerminal: true,
+  },
+}
 
-export default nextConfig;
+export default nextConfig

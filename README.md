@@ -2,11 +2,11 @@
 
 A production-ready SpaceX launch browser built with Next.js 16 and the public [SpaceX API v4](https://api.spacexdata.com/v4).
 
-**Live:** https://kotkoa.github.io/DigtAG-SpaceX-Explorer
+**Live:** https://digt-ag-space-x-explorer.vercel.app
 
 | Launches list | Launch statistics |
 |:---:|:---:|
-| ![Launches list with filters and search](https://kotkoa.github.io/DigtAG-SpaceX-Explorer/screenshot-home.png) | ![Launch statistics — launches per year and success rate](https://kotkoa.github.io/DigtAG-SpaceX-Explorer/screenshot-stats.png) |
+| ![Launches list with filters and search](public/screenshot-home.png) | ![Launch statistics — launches per year and success rate](public/screenshot-stats.png) |
 
 ---
 

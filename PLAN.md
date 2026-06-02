@@ -271,33 +271,42 @@
 - [x] Прогнать skill `/code-review`
 - [x] Исправить замечания
 
-## Шаг 9 — Деплой GitHub Pages + README
+## Шаг 9 — Деплой Vercel (через GitHub CI) + README
 
-> **Skill:** `github-actions-creator`
+> **Skill:** `vercel-composition-patterns`
 
-- [x] `.nojekyll`
-- [x] GitHub Action: build → export → deploy на `gh-pages`
-- [x] README:
-  - [x] How to run
-  - [x] Architecture decisions (App vs Pages Router — обоснование)
-  - [x] Data layer (почему React Query)
-  - [x] SpaceX API usage (queries, pagination strategy)
-  - [x] Performance considerations (virtualization, memoization, background refresh)
-  - [x] Accessibility considerations
-  - [x] Tradeoffs / what next
-  - [x] Known limitations / TODOs (сравнение запусков, offline/SW, SSR — осознанно отложены)
+**Откат GitHub Pages:**
+- [x] Убрать `output: 'export'`, `basePath`, `assetPrefix`, `images.unoptimized` из `next.config.ts`
+- [x] Удалить `.github/workflows/deploy.yml` (GitHub Pages workflow)
+- [x] Удалить `public/.nojekyll`
+
+**Vercel деплой:**
+- [ ] Создать `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID` в GitHub Secrets
+- [ ] `.github/workflows/deploy.yml`: тесты → `vercel build` → `vercel deploy --prebuilt` на `main`
+- [ ] Preview deploys на PR через тот же workflow (без `--prod`)
+
+**README:**
+- [x] How to run
+- [x] Architecture decisions (App vs Pages Router — обоснование)
+- [x] Data layer (почему React Query)
+- [x] SpaceX API usage (queries, pagination strategy)
+- [x] Performance considerations (virtualization, memoization, background refresh)
+- [x] Accessibility considerations
+- [x] Tradeoffs / what next
+- [x] Known limitations / TODOs
+- [x] Обновить Live-ссылку на Vercel URL: https://digt-ag-space-x-explorer.vercel.app
 
 **Acceptance Criteria:**
 
-- [ ] GitHub Action собирает и деплоит на `gh-pages` без ошибок
-- [ ] Живая ссылка GitHub Pages открывается, все роуты работают (включая прямой заход на `/launches/[id]` и `/favorites`, `/stats`)
-- [ ] Ассеты/изображения грузятся корректно с учётом `basePath` (нет битых путей)
-- [ ] README содержит все перечисленные разделы и актуален
-- [ ] `.nojekyll` присутствует (иначе `_next` будет проигнорирован)
+- [ ] GitHub Action: тесты → `vercel deploy` проходит без ошибок на push в `main`
+- [ ] Живая ссылка Vercel открывается, все роуты работают при прямом заходе (`/launches/[id]`, `/favorites`, `/stats`)
+- [ ] Ассеты грузятся корректно (нет битых путей — `basePath` убран)
+- [ ] Preview URL генерируется на каждый PR
+- [ ] README содержит все разделы и актуальную Live-ссылку
 
 **Code Review:**
 
-- [ ] Запустить агента `code-reviewer` (Task) по диффу шага (включая workflow и README)
+- [ ] Запустить агента `code-reviewer` (Task) по диффу шага
 - [ ] Прогнать skill `/code-review`
 - [ ] Исправить замечания
 

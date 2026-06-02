@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "postbuild": "cp out/index.html out/404.html"
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.100.14",
